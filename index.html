@@ -8,165 +8,163 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root {
-            --primary-color: #3498db;
-            --secondary-color: #2c3e50;
-            --accent-color: #e74c3c;
-            --light-color: #ecf0f1;
-            --dark-color: #2c3e50;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f5f5f5;
-        }
-        
-        /* Sidebar */
-        .sidebar {
-            background-color: var(--secondary-color);
-            color: white;
-            height: 100vh;
-            position: fixed;
-            transition: all 0.3s;
-        }
-        
-        .sidebar .nav-link {
-            color: rgba(255, 255, 255, 0.8);
-            border-radius: 5px;
-            margin-bottom: 5px;
-            transition: all 0.3s;
-        }
-        
-        .sidebar .nav-link:hover, 
-        .sidebar .nav-link.active {
-            background-color: var(--primary-color);
-            color: white;
-        }
-        
-        .sidebar .nav-link i {
-            margin-right: 10px;
-        }
-        
-        .main-content {
-            margin-left: 250px;
-            padding: 20px;
-            transition: all 0.3s;
-        }
-        
-        /* Mobile Menu */
-        .mobile-menu-container {
-            display: none;
-            overflow-x: auto;
-            white-space: nowrap;
-            padding: 10px 0;
-            background-color: var(--secondary-color);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        
-        .mobile-menu-scroll {
-            display: inline-flex;
-            gap: 5px;
-            padding: 0 10px;
-        }
-        
-        .mobile-menu-link {
-            display: inline-block;
-            color: rgba(255, 255, 255, 0.8);
-            padding: 8px 12px;
-            border-radius: 5px;
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-        
-        .mobile-menu-link:hover, 
-        .mobile-menu-link.active {
-            background-color: var(--primary-color);
-            color: white;
-        }
-        
-        /* Dashboard Cards */
-        .dashboard-card {
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-            margin-bottom: 20px;
-        }
-        
-        .dashboard-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .card-icon {
-            font-size: 2rem;
-            opacity: 0.7;
-        }
-        
-        /* Tables */
-        .table-responsive {
-            overflow-x: auto;
-        }
-        
-        .action-buttons .btn {
-            padding: 0.25rem 0.5rem;
-            font-size: 0.875rem;
-            margin: 2px;
-        }
-        
-        .print-button {
-            background-color: #6c757d;
-            color: white;
-            border: none;
-            padding: 5px 10px;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        
-        /* Login Styles */
-        .login-container {
-            max-width: 400px;
-            margin: 100px auto;
-        }
-        
-        .login-card {
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-        
-        /* Admin Controls */
-        .admin-only { 
-            display: none; 
-        }
-        
-        /* User/Admin Switch */
-        .access-switch {
-            position: fixed;
-            top: 10px;
-            right: 10px;
-            z-index: 1000;
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .sidebar {
-                display: none;
-            }
-            
-            .mobile-menu-container {
-                display: block;
-            }
-            
-            .main-content {
-                margin-left: 0;
-            }
-            
-            .access-switch {
-                position: static;
-                margin-bottom: 20px;
-                text-align: center;
-            }
-        }
-        /* Add this to your existing CSS */
+   :root {
+    --primary-color: #3498db;
+    --secondary-color: #2c3e50;
+    --accent-color: #e74c3c;
+    --light-color: #ecf0f1;
+    --dark-color: #2c3e50;
+    --education-color: #9b59b6; /* New color for education card */
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f5f5;
+}
+
+/* Sidebar */
+.sidebar {
+    background-color: var(--secondary-color);
+    color: white;
+    height: 100vh;
+    position: fixed;
+    transition: all 0.3s;
+}
+
+.sidebar .nav-link {
+    color: rgba(255, 255, 255, 0.8);
+    border-radius: 5px;
+    margin-bottom: 5px;
+    transition: all 0.3s;
+}
+
+.sidebar .nav-link:hover, 
+.sidebar .nav-link.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.sidebar .nav-link i {
+    margin-right: 10px;
+}
+
+.main-content {
+    margin-left: 250px;
+    padding: 20px;
+    transition: all 0.3s;
+}
+
+/* Mobile Menu */
+.mobile-menu-container {
+    display: none;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 10px 0;
+    background-color: var(--secondary-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.mobile-menu-scroll {
+    display: inline-flex;
+    gap: 5px;
+    padding: 0 10px;
+}
+
+.mobile-menu-link {
+    display: inline-block;
+    color: rgba(255, 255, 255, 0.8);
+    padding: 8px 12px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.mobile-menu-link:hover, 
+.mobile-menu-link.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* Dashboard Cards */
+.dashboard-card {
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    margin-bottom: 20px;
+    border: none;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-5px);
+}
+
+.card-icon {
+    font-size: 2rem;
+    opacity: 0.7;
+}
+
+/* Specific card colors */
+.dashboard-card.bg-primary { background-color: var(--primary-color) !important; }
+.dashboard-card.bg-success { background-color: #27ae60 !important; }
+.dashboard-card.bg-info { background-color: #2980b9 !important; }
+.dashboard-card.bg-warning { background-color: #f39c12 !important; }
+.dashboard-card.bg-danger { background-color: var(--education-color) !important; } /* Education card */
+
+/* Tables */
+.table-responsive {
+    overflow-x: auto;
+    margin-bottom: 20px;
+}
+
+.table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 1rem;
+    background-color: transparent;
+}
+
+.table th {
+    background-color: var(--light-color);
+    color: var(--dark-color);
+    font-weight: 600;
+}
+
+.table td, .table th {
+    padding: 12px 15px;
+    vertical-align: middle;
+    border-top: 1px solid #dee2e6;
+}
+
+/* Table totals row */
+.table-total {
+    font-weight: bold;
+    background-color: rgba(52, 152, 219, 0.1) !important;
+    color: var(--dark-color);
+}
+
+.table-total th {
+    border-top: 2px solid var(--primary-color);
+}
+
+/* Action buttons */
+.action-buttons .btn {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+    margin: 2px;
+}
+
+.print-button {
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Search input */
 .dataTables_filter input {
     pointer-events: auto !important;
     cursor: text !important;
@@ -174,12 +172,143 @@
     padding: 8px !important;
     border: 1px solid #ddd !important;
     border-radius: 4px !important;
+    transition: all 0.3s;
 }
 
 .dataTables_filter input:focus {
     outline: none !important;
     border-color: var(--primary-color) !important;
     box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2) !important;
+}
+
+/* Login Styles */
+.login-container {
+    max-width: 400px;
+    margin: 100px auto;
+}
+
+.login-card {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Admin Controls */
+.admin-only { 
+    display: none; 
+}
+
+/* User/Admin Switch */
+.access-switch {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .sidebar {
+        display: none;
+    }
+    
+    .mobile-menu-container {
+        display: block;
+    }
+    
+    .main-content {
+        margin-left: 0;
+    }
+    
+    .access-switch {
+        position: static;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    
+    .dashboard-card {
+        margin-bottom: 15px;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .no-print {
+        display: none !important;
+    }
+    
+    body {
+        padding: 0;
+        margin: 0;
+        font-size: 12pt;
+        background: white;
+        color: black;
+    }
+    
+    .main-content {
+        margin-left: 0;
+        padding: 0;
+    }
+    
+    .table {
+        page-break-inside: avoid;
+    }
+    
+    .table th {
+        background-color: #f8f9fa !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    
+    .table-total {
+        background-color: rgba(52, 152, 219, 0.1) !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    
+    .table td, .table th {
+        border-color: #ddd !important;
+    }
+    
+    .card {
+        border: none !important;
+        box-shadow: none !important;
+    }
+    
+    .dashboard-card {
+        break-inside: avoid;
+        margin-bottom: 15pt;
+    }
+    
+    .dashboard-card .card-body {
+        padding: 10pt !important;
+    }
+    
+    .dashboard-card .card-icon {
+        font-size: 1.5rem;
+    }
+    
+    .dashboard-card h6 {
+        font-size: 10pt;
+        margin-bottom: 5pt;
+    }
+    
+    .dashboard-card h2 {
+        font-size: 18pt;
+        margin-bottom: 0;
+    }
+}
+
+/* Dashboard grid layout */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+@media (max-width: 576px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
 }
     </style>
 </head>
@@ -259,8 +388,11 @@
                 </div>
             </div>
 
+
+    <div class="container-fluid">
+        <div class="row">
             <!-- Main Content -->
-            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 main-content">
+            <main class="col-md-12 px-md-4 main-content">
                 <!-- Dashboard Section -->
                 <div id="dashboard-section" class="content-section">
                     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
@@ -268,6 +400,7 @@
                     </div>
                     
                     <div class="row">
+                        <!-- Members Card -->
                         <div class="col-md-3">
                             <div class="card text-white bg-primary dashboard-card">
                                 <div class="card-body">
@@ -281,6 +414,8 @@
                                 </div>
                             </div>
                         </div>
+                        
+                        <!-- Savings Card -->
                         <div class="col-md-3">
                             <div class="card text-white bg-success dashboard-card">
                                 <div class="card-body">
@@ -294,6 +429,8 @@
                                 </div>
                             </div>
                         </div>
+                        
+                        <!-- Condolences Card -->
                         <div class="col-md-3">
                             <div class="card text-white bg-info dashboard-card">
                                 <div class="card-body">
@@ -307,6 +444,8 @@
                                 </div>
                             </div>
                         </div>
+                        
+                        <!-- Health Card -->
                         <div class="col-md-3">
                             <div class="card text-white bg-warning dashboard-card">
                                 <div class="card-body">
@@ -320,12 +459,28 @@
                                 </div>
                             </div>
                         </div>
+                        
+                        <!-- Education Card (New) -->
+                        <div class="col-md-3 mt-3">
+                            <div class="card text-white bg-danger dashboard-card">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <h6 class="card-title">Total Education</h6>
+                                            <h2 id="total-education" class="card-text">KES 0</h2>
+                                        </div>
+                                        <i class="fas fa-graduation-cap card-icon"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     
+                    <!-- Beneficiaries Table -->
                     <div class="card mt-4">
                         <div class="card-header d-flex justify-content-between align-items-center">
                             <h5>Beneficiaries Summary</h5>
-                            <button class="print-button" onclick="printTable('beneficiaries-table')">
+                            <button class="btn btn-secondary print-button no-print" onclick="printTable('beneficiaries-table')">
                                 <i class="fas fa-print"></i> Print
                             </button>
                         </div>
@@ -340,11 +495,19 @@
                                         </tr>
                                     </thead>
                                     <tbody></tbody>
+                                    <tfoot>
+                                        <tr class="table-total">
+                                            <th>Total</th>
+                                            <th id="beneficiaries-total">KES 0</th>
+                                            <th id="beneficiaries-count">0</th>
+                                        </tr>
+                                    </tfoot>
                                 </table>
                             </div>
                         </div>
                     </div>
                 </div>
+                
                 
                 <!-- Members Section -->
                 <div id="members-section" class="content-section" style="display:none;">
@@ -1913,193 +2076,134 @@
             resetHealthForm();
             resetEducationForm();
         }
-
-        // Utility Functions
-       function printTable(tableId) {
-    // Get the DataTable instance
-    const table = $('#' + tableId).DataTable();
-    
-    // Show loading indicator
-    Swal.fire({
-        title: 'Preparing Print',
-        html: 'Please wait while we prepare all data for printing...',
-        allowOutsideClick: false,
-        didOpen: () => {
-            Swal.showLoading();
+        function updateDashboardStats() {
+            // Update card values
+            $('#total-members').text(membersData.length);
+            
+            const totalSavings = savingsData.reduce((sum, item) => sum + parseFloat(item.amount || 0), 0);
+            $('#total-savings').text('KES ' + totalSavings.toLocaleString());
+            
+            const totalCondolences = condolencesData.reduce((sum, item) => sum + parseFloat(item.amount || 0), 0);
+            $('#total-condolences').text('KES ' + totalCondolences.toLocaleString());
+            
+            const totalHealth = healthData.reduce((sum, item) => sum + parseFloat(item.amount || 0), 0);
+            $('#total-health').text('KES ' + totalHealth.toLocaleString());
+            
+            const totalEducation = educationData.reduce((sum, item) => sum + parseFloat(item.amount || 0), 0);
+            $('#total-education').text('KES ' + totalEducation.toLocaleString());
+            
+            // Update table footers
+            $('#members-count').text(membersData.length);
+            $('#savings-total').text('KES ' + totalSavings.toLocaleString());
+            $('#condolences-total').text('KES ' + totalCondolences.toLocaleString());
+            $('#health-total').text('KES ' + totalHealth.toLocaleString());
+            $('#education-total').text('KES ' + totalEducation.toLocaleString());
+            
+            updateBeneficiariesTable();
         }
-    });
 
-    // Store original settings
-    const originalSettings = {
-        pageLength: table.page.len(),
-        info: table.settings()[0].oFeatures.bInfo,
-        paging: table.settings()[0].oFeatures.bPaginate
-    };
-
-    // Temporarily show all rows (current filtered set)
-    table.page.len(-1).draw();
-
-    // Create print window
-    const printWindow = window.open('', '_blank');
-    const tableTitle = $('#' + tableId).closest('.card').find('.card-header h5').text();
-    const currentDate = new Date().toLocaleString();
-    
-    // Clone the table for printing
-    const tableClone = $('#' + tableId).clone();
-    
-    // Clean up the cloned table
-    tableClone.removeClass('dataTable')
-              .removeAttr('id')
-              .removeAttr('style')
-              .removeAttr('width')
-              .removeAttr('aria-describedby');
-    
-    // Remove unwanted elements
-    tableClone.find('.action-buttons, .sorting, .sorting_asc, .sorting_desc').remove();
-    tableClone.find('th').removeAttr('tabindex').removeAttr('aria-label');
-    
-    // Create print content
-    const printContent = `<!DOCTYPE html>
-<html>
-<head>
-    <title>Print: ${tableTitle}</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 0.5in; color: #000; }
-        .print-header { margin-bottom: 20px; border-bottom: 1px solid #ddd; padding-bottom: 10px; }
-        .print-title { font-size: 18pt; font-weight: bold; text-align: center; }
-        .print-subtitle { text-align: center; margin-top: 5px; }
-        .print-date { text-align: right; font-size: 9pt; margin-bottom: 10px; }
-        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
-        th { background-color: #f2f2f2 !important; text-align: left; }
-        th, td { border: 1px solid #ddd; padding: 8px; }
-        .print-footer { margin-top: 20px; font-size: 8pt; text-align: center; color: #666; }
-        @page { size: auto; margin: 5mm; }
-        @media print {
-            body { margin: 0; padding: 0; }
-            .no-print { display: none !important; }
-        }
-    </style>
-</head>
-<body>
-    <div class="print-header">
-        <div class="print-title">${tableTitle.replace(/</g, '&lt;').replace(/>/g, '&gt;')}</div>
-        <div class="print-subtitle">Community Welfare App</div>
-        <div class="print-date">Printed: ${currentDate}</div>
-    </div>
-    ${tableClone[0].outerHTML}
-    <div class="print-footer">
-        Page <span class="pageNumber"></span> of <span class="totalPages"></span>
-    </div>
-    <script>
-        // Add page numbers
-        function addPageNumbers() {
-            const totalPages = Math.ceil(document.body.scrollHeight / window.innerHeight);
-            document.querySelectorAll('.pageNumber').forEach(el => {
-                el.textContent = window.pageNum || 1;
-            });
-            document.querySelectorAll('.totalPages').forEach(el => {
-                el.textContent = totalPages;
-            });
-        }
-        
-        // Print and close when loaded
-        window.onload = function() {
-            addPageNumbers();
-            setTimeout(function() {
-                window.print();
-                window.close();
-                // Restore original settings in parent window
-                try {
-                    window.opener.postMessage({
-                        type: 'restoreTableSettings',
-                        tableId: '${tableId.replace(/'/g, "\\'")}',
-                        settings: ${JSON.stringify(originalSettings).replace(/</g, '\\u003c')}
-                    }, '*');
-                } catch(e) {
-                    console.log('Could not restore settings:', e);
+        function updateBeneficiariesTable() {
+            const allContributions = [...savingsData, ...condolencesData, ...healthData, ...educationData];
+            const beneficiariesMap = new Map();
+            
+            allContributions.forEach(contribution => {
+                if (!beneficiariesMap.has(contribution.beneficiaryId)) {
+                    const beneficiary = membersData.find(m => m.id === contribution.beneficiaryId);
+                    if (beneficiary) {
+                        beneficiariesMap.set(contribution.beneficiaryId, {
+                            name: beneficiary.name,
+                            totalAmount: 0,
+                            contributorCount: 0
+                        });
+                    }
                 }
-            }, 300);
-        };
-        
-        // Update page numbers on each page break
-        window.onafterprint = function() {
-            if (window.pageNum) {
-                window.pageNum++;
-            } else {
-                window.pageNum = 2;
-            }
-            addPageNumbers();
-        };
-    <` + `/script>
-</body>
-</html>`;
-
-    // Write content to print window
-    printWindow.document.open();
-    printWindow.document.write(printContent);
-    printWindow.document.close();
-
-    // Restore original table settings after a delay
-    setTimeout(() => {
-        table.page.len(originalSettings.pageLength).draw();
-        Swal.close();
-    }, 1000);
-}
-
-// Listen for restore message (in case print window fails to restore settings)
-window.addEventListener('message', function(event) {
-    if (event.data.type === 'restoreTableSettings') {
-        const table = $('#' + event.data.tableId).DataTable();
-        table.page.len(event.data.settings.pageLength).draw();
-    }
-});
-
-        function capitalizeFirstLetter(string) {
-            return string.charAt(0).toUpperCase() + string.slice(1);
-        }
-
-        // Initialize DataTables with proper settings
-        function initializeDataTables() {
-            $('.table').each(function() {
-                const tableId = $(this).attr('id');
-                if (!$.fn.DataTable.isDataTable('#' + tableId)) {
-                    initializeDataTable(tableId);
+                
+                const beneficiaryData = beneficiariesMap.get(contribution.beneficiaryId);
+                if (beneficiaryData) {
+                    beneficiaryData.totalAmount += parseFloat(contribution.amount || 0);
+                    beneficiaryData.contributorCount++;
                 }
-            });
-        }
-
-       function initializeDataTable(tableId) {
-    $('#' + tableId).DataTable({
-        responsive: true,
-        dom: '<"top"f>rt<"bottom"lip><"clear">',
-        language: {
-            search: "_INPUT_",
-            searchPlaceholder: "Search...",
-            lengthMenu: "Show _MENU_ entries",
-            info: "Showing _START_ to _END_ of _TOTAL_ entries",
-            infoEmpty: "Showing 0 to 0 of 0 entries",
-            infoFiltered: "(filtered from _MAX_ total entries)",
-            paginate: {
-                first: "First",
-                last: "Last",
-                next: "Next",
-                previous: "Previous"
-            }
-        },
-        initComplete: function() {
-            // Ensure search input is properly initialized
-            const searchInput = $('#' + tableId + '_filter input');
-            searchInput.off().on('keyup click', function() {
-                this.focus();
             });
             
-            // Make the search input clickable
-            searchInput.css('pointer-events', 'auto')
-                      .css('cursor', 'text')
-                      .attr('readonly', false);
+            const table = $('#beneficiaries-table').DataTable();
+            table.clear().draw();
+            
+            if (beneficiariesMap.size === 0) {
+                table.row.add(['No beneficiaries found', '', '']).draw();
+                return;
+            }
+            
+            let grandTotal = 0;
+            let totalContributors = 0;
+            
+            beneficiariesMap.forEach((value, key) => {
+                table.row.add([
+                    value.name || 'Unknown',
+                    'KES ' + value.totalAmount.toLocaleString(),
+                    value.contributorCount
+                ]).draw(false);
+                
+                grandTotal += value.totalAmount;
+                totalContributors += value.contributorCount;
+            });
+            
+            // Update footer totals
+            $('#beneficiaries-total').text('KES ' + grandTotal.toLocaleString());
+            $('#beneficiaries-count').text(totalContributors);
         }
-    });
-}
+
+        // Enhanced print function
+        function printTable(tableId) {
+            const table = $('#' + tableId).DataTable();
+            const title = $('#' + tableId).closest('.card').find('.card-header h5').text();
+            
+            // Create a print window
+            const printWindow = window.open('', '_blank');
+            const printContent = `
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <title>Print: ${title}</title>
+                    <style>
+                        body { font-family: Arial; margin: 0.5in; }
+                        h1 { text-align: center; font-size: 1.5em; }
+                        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+                        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+                        th { background-color: #f2f2f2; }
+                        .table-total { font-weight: bold; background-color: #f8f9fa !important; }
+                        .print-date { text-align: right; margin-bottom: 20px; }
+                        @page { size: auto; margin: 5mm; }
+                        @media print {
+                            body { margin: 0; }
+                            .no-print { display: none !important; }
+                        }
+                    </style>
+                </head>
+                <body>
+                    <h1>${title}</h1>
+                    <div class="print-date">Printed: ${new Date().toLocaleString()}</div>
+                    ${$('#' + tableId).clone().removeClass('dataTable')[0].outerHTML}
+                    <script>
+                        window.onload = function() {
+                            setTimeout(function() {
+                                window.print();
+                                window.close();
+                            }, 100);
+                        };
+                    <` + `/script>
+                </body>
+                </html>
+            `;
+            
+            printWindow.document.open();
+            printWindow.document.write(printContent);
+            printWindow.document.close();
+        }
+
+        // Initialize the application
+        $(document).ready(function() {
+            initializeApp();
+        });
     </script>
 </body>
 </html>
